@@ -17,7 +17,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms)); // Função que usa
 
 // Funil
 
-client.on('message', async msg => {
+client.on('message', async msg =>{
 
     if (msg.body.match(/(menu|Menu|dia|tarde|noite|oi|Oi|Olá|olá|ola|Ola)/i) && msg.from.endsWith('@c.us')) {
 
@@ -28,7 +28,7 @@ client.on('message', async msg => {
         await delay(3000); //Delay de 3000 milisegundos mais conhecido como 3 segundos
         const contact = await msg.getContact(); //Pegando o contato
         const name = contact.pushname; //Pegando o nome do contato
-        await client.sendMessage(msg.from,'Olá! ' + name.split(" ")[0] + ' sou o assistente virtual do Fabio Tattoo.  Como posso ajudá-lo hoje? Por favor, digite uma das opções abaixo:\n\n1 - Orçamentos\n2 - Outras Informações '); //Primeira mensagem de texto
+        await client.sendMessage(msg.from,'Olá! ' + name.split(" ")[0] + ' sou o assistente virtual do Fabio Tattoo .  Como posso ajudá-lo hoje? Por favor, digite uma das opções abaixo:\n\n1 - Orçamentos\n2 - Outras Informações '); //Primeira mensagem de texto
 
         
     }
@@ -74,13 +74,12 @@ client.on('message', async msg => {
     
      if (msg.body !== null && msg.body === '3' && msg.from.endsWith('@c.us')) {
         const chat = await msg.getChat();
-
         await delay(3000); //delay de 3 segundos
         await chat.sendStateTyping(); // Simulando Digitação
         await delay(3000);
         const contact = await msg.getContact(); //Pegando o contato
         const name = contact.pushname; //Pegando o nome do contato
-        await client.sendMessage(msg.from, 'Entendi! ' + name.split(" ")[0] + ' Vou te Encaminhar para falar diretamente com o Fabio e ele te passa o Orcamento certinho ta bom  ?  ');
+        await client.sendMessage(msg.from, 'Entendi! ' + name.split(" ")[0] + ' Vou te Encaminhar para falar diretamente com o Fabio e ele te passa o Orcamento certinho ta bom  ?');
         
         await delay(3000); //delay de 3 segundos
         await chat.sendStateTyping(); // Simulando Digitação
@@ -118,13 +117,12 @@ client.on('message', async msg => {
 
                 await delay(3000); //delay de 3 segundos
                 await chat.sendStateTyping(); // Simulando Digitação
-                await delay(3000);fabiosilveiratattoo
+                await delay(3000);
                 await client.sendMessage(msg.from, 'Enquanto ele prepara pra te responder da uma olhada nos trabalhos dele no instagram e aproveita e já segue ele! https://instagram.com/fabiosilveiratattoo');
       }
       
       if (msg.body !== null && msg.body === '6' && msg.from.endsWith('@c.us')) {
                     const chat = await msg.getChat();
-            
                     await delay(3000); //delay de 3 segundos
                     await chat.sendStateTyping(); // Simulando Digitação
                     await delay(3000);
@@ -153,17 +151,10 @@ client.on('message', async msg => {
         await delay(3000); //delay de 3 segundos
         await chat.sendStateTyping(); // Simulando Digitação
         await delay(3000);
-        await client.sendMessage(msg.from, 'Enquanto ele prepara pra te responder da uma olhada nos trabalhos dele no instagram e aproveita e já segue ele!  https://instagram.com/fabiosilveiratattoo');
+        await client.sendMessage(msg.from, 'Enquanto ele prepara pra te responder da uma olhada nos trabalhos dele no instagram, aproveita e já segue ele!  https://instagram.com/fabiosilveiratattoo');
   
 
 
     }
-
-
-
-
-
-
-
-
+    
 });
